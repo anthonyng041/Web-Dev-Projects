@@ -17,6 +17,9 @@ inquirer
     const url = answers.URL;
     var qr_svg = qr.image(url);
     qr_svg.pipe(fs.createWriteStream('qr.png'));
+    fs.writeFile("text.txt", url, err => {
+        if (err) throw err;
+    });
   })
   .catch((error) => {
     if (error.isTtyError) {
